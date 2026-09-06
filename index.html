@@ -100,6 +100,16 @@ a{color:inherit}
 .hero h1 em{font-style:normal;display:block}
 .hero .lede{margin:clamp(1.75rem,4vw,2.5rem) 0 0}
 
+.hero-figure{margin:0;border-top:1px solid var(--rule)}
+.hero-shot{
+  width:100%;
+  height:clamp(15rem,50vw,31rem);
+  object-fit:cover;object-position:center 32%;
+  /* grayscale keeps the foundation black/white so the pillar accents stay the only colour */
+  filter:grayscale(1) contrast(1.08);
+  background:#151515;
+}
+
 .pillars{
   display:grid;gap:1px;background:var(--rule);
   grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
@@ -214,11 +224,16 @@ a{color:inherit}
 
   <section class="hero" id="top">
     <div class="wrap">
-      <img class="mark" src="assets/logo-white.svg" alt="AIWA AIWA" width="544" height="363" fetchpriority="high">
+      <img class="mark" src="assets/logo-white.svg" alt="AIWA AIWA" width="544" height="363">
       <h1 class="display">Institutionel anerkendelse.<em>Uden assimilation.</em></h1>
       <p class="lede">Scenekunststudie i Gellerup. Rå gadekultur, professionel scene. <strong>Vi giver ikke køb på nogen af delene.</strong></p>
     </div>
   </section>
+
+  <!-- placeholder image: swap for a final approved production still -->
+  <figure class="hero-figure">
+    <img class="hero-shot" src="assets/hero-placeholder.jpg" alt="To optrædende på scenen under en forestilling: en musiker med bas og en skuespiller med mikrofon iført kufiya." width="1800" height="945" fetchpriority="high" decoding="async">
+  </figure>
 
   <nav class="pillars" aria-label="Tre søjler">
     <a href="#forestillinger"><b>Forestillinger</b><span>Teater om det, der ikke bliver sagt</span></a>
