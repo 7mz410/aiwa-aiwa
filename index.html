@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIWA AIWA — Scenekunststudie, Gellerup</title>
+<meta name="description" content="Aiwa Aiwa er et scenekunststudie i Gellerup. Forestillinger, foredrag og værksteder om det, folk helst tier om.">
+<link rel="icon" href="assets/icon-reference.png">
+<meta property="og:title" content="AIWA AIWA — Scenekunststudie, Gellerup">
+<meta property="og:description" content="Institutionel anerkendelse. Uden assimilation.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --aiwa-black:#0a0a0a;
+  --aiwa-white:#ffffff;
+  --aiwa-productions:#E619A0;
+  --aiwa-keynotes:#FF5A1F;
+  --aiwa-community:#C8F31D;
+  --accent:var(--aiwa-white);
+  --rule:rgba(255,255,255,.18);
+  --muted:rgba(255,255,255,.62);
+  --font-display:'Anton',Impact,'Haettenschweiler','Arial Narrow Bold',sans-serif;
+  --font-body:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --gutter:clamp(1.25rem,5vw,5rem);
+  --stack:clamp(4rem,10vw,8.5rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--aiwa-black);
+  color:var(--aiwa-white);
+  font-family:var(--font-body);
+  font-size:1rem;
+  line-height:1.5;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* --- shared ------------------------------------------------------------- */
+.wrap{max-width:78rem;margin-inline:auto;padding-inline:var(--gutter)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-9999px;top:0;background:var(--aiwa-white);color:var(--aiwa-black);padding:.75rem 1rem;font-weight:800;z-index:99}
+.skip:focus{left:.5rem;top:.5rem}
+
+.display{
+  font-family:var(--font-display);
+  font-weight:400;
+  text-transform:uppercase;
+  line-height:.94;
+  letter-spacing:.005em;
+  margin:0;
+  text-wrap:balance;
+}
+.lede{font-size:clamp(1.0625rem,1.7vw,1.375rem);line-height:1.5;max-width:46ch;color:var(--muted);font-weight:300}
+.lede strong{color:var(--aiwa-white);font-weight:600}
+
+.tag{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-size:.75rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 1.5rem;
+}
+.tag::before{content:"";width:2.25rem;height:3px;background:var(--accent)}
+
+/* --- header ------------------------------------------------------------- */
+.site-head{
+  position:sticky;top:0;z-index:50;
+  background:var(--aiwa-black);
+  border-bottom:1px solid var(--rule);
+}
+.site-head .wrap{
+  display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;
+  padding-block:.9rem;
+}
+.site-head .mark{width:8.5rem;flex:0 0 auto}
+.nav{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem;margin-left:auto;align-items:center}
+.nav a{
+  text-decoration:none;font-size:.8125rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;
+  min-height:44px;display:inline-flex;align-items:center;
+  border-bottom:2px solid transparent;
+}
+.nav a:hover{border-bottom-color:var(--aiwa-white)}
+.nav a.is-book{
+  background:var(--aiwa-white);color:var(--aiwa-black);
+  padding-inline:1rem;border-bottom:0;
+}
+.nav a.is-book:hover{background:var(--aiwa-community)}
+
+/* --- hero --------------------------------------------------------------- */
+.hero{padding-block:clamp(3.5rem,9vw,7.5rem) clamp(3rem,7vw,6rem);border-bottom:1px solid var(--rule)}
+.hero .mark{width:min(100%,34rem);margin-bottom:clamp(2rem,5vw,3.25rem)}
+.hero h1{font-size:clamp(2.6rem,8.2vw,6.5rem);max-width:16ch}
+.hero h1 em{font-style:normal;display:block}
+.hero .lede{margin:clamp(1.75rem,4vw,2.5rem) 0 0}
+
+.pillars{
+  display:grid;gap:1px;background:var(--rule);
+  grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  border-block:1px solid var(--rule);
+}
+.pillars a{
+  background:var(--aiwa-black);text-decoration:none;
+  padding:1.75rem var(--gutter);display:flex;flex-direction:column;gap:.4rem;
+}
+.pillars a:hover,.pillars a:focus-visible{background:#151515}
+.pillars b{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:1.5rem;letter-spacing:.01em}
+.pillars span{font-size:.875rem;color:var(--muted)}
+.pillars a:nth-child(1) b{color:var(--aiwa-productions)}
+.pillars a:nth-child(2) b{color:var(--aiwa-keynotes)}
+.pillars a:nth-child(3) b{color:var(--aiwa-community)}
+
+/* --- sections ----------------------------------------------------------- */
+.section{padding-block:var(--stack);border-bottom:1px solid var(--rule)}
+.section--productions{--accent:var(--aiwa-productions)}
+.section--keynotes{--accent:var(--aiwa-keynotes)}
+.section--community{--accent:var(--aiwa-community)}
+.section h2{font-size:clamp(2.1rem,6vw,4.5rem);max-width:18ch}
+.section .lede{margin-top:1.5rem}
+.section-head{margin-bottom:clamp(2.5rem,6vw,4rem)}
+
+/* shows */
+.shows{display:grid;gap:1px;background:var(--rule);grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));border:1px solid var(--rule)}
+.show{background:var(--aiwa-black);padding:clamp(1.5rem,3vw,2.25rem)}
+.show h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:clamp(1.75rem,3.4vw,2.5rem);line-height:1;margin:0 0 1rem}
+.show p{margin:0 0 1.25rem;color:var(--muted);max-width:38ch}
+.meta{font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0}
+
+/* dates */
+.dates{margin-top:clamp(2.5rem,5vw,3.5rem)}
+.dates h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:1.5rem;margin:0 0 1.25rem;letter-spacing:.02em}
+.dates ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.dates li{
+  border-bottom:1px solid var(--rule);
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem 1.5rem;
+  padding-block:1.1rem;
+}
+.dates time{font-family:var(--font-display);font-weight:400;font-size:1.375rem;letter-spacing:.02em;flex:0 0 7.5rem}
+.dates .venue{flex:1 1 12rem;font-weight:600}
+.dates .venue small{display:block;font-weight:400;color:var(--muted);font-size:.875rem}
+.ticket{
+  margin-left:auto;text-decoration:none;font-size:.8125rem;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;
+  border:2px solid var(--accent);color:var(--accent);
+  padding:0 1.1rem;min-height:44px;display:inline-flex;align-items:center;
+}
+.ticket:hover,.ticket:focus-visible{background:var(--accent);color:var(--aiwa-black)}
+
+/* talks */
+.talks{display:grid;gap:1px;background:var(--rule);grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));border:1px solid var(--rule)}
+.talk{background:var(--aiwa-black);padding:clamp(1.5rem,3vw,2.25rem);text-decoration:none;display:flex;flex-direction:column;gap:.75rem}
+.talk:hover,.talk:focus-visible{background:#151515}
+.talk h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:1.75rem;line-height:1;margin:0}
+.talk p{margin:0;color:var(--muted)}
+.talk .more{margin-top:auto;padding-top:1rem;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+
+/* community + team */
+.split{display:grid;gap:clamp(2rem,5vw,4rem);grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}
+.rules{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.rules li{border-bottom:1px solid var(--rule);padding-block:1.1rem;display:flex;gap:1rem;align-items:baseline}
+.rules b{font-family:var(--font-display);font-weight:400;color:var(--accent);font-size:1.125rem;flex:0 0 2rem}
+.team{list-style:none;margin:clamp(2.5rem,5vw,3.5rem) 0 0;padding:0;display:grid;gap:1px;background:var(--rule);grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));border:1px solid var(--rule)}
+.team li{background:var(--aiwa-black);padding:1.5rem}
+.team b{display:block;font-size:1.0625rem;font-weight:800;margin-bottom:.25rem}
+.team span{color:var(--muted);font-size:.9375rem}
+
+/* contact */
+.contact{padding-block:var(--stack)}
+.contact h2{font-size:clamp(2.1rem,6vw,4.5rem)}
+.contact .lede{margin-block:1.5rem clamp(2rem,4vw,2.75rem)}
+.mailto{
+  font-family:var(--font-display);font-weight:400;text-transform:none;
+  font-size:clamp(1.5rem,4.5vw,3rem);text-decoration:none;
+  border-bottom:4px solid var(--aiwa-community);display:inline-block;line-height:1.1;
+  word-break:break-word;
+}
+.mailto:hover{color:var(--aiwa-community)}
+.site-foot{border-top:1px solid var(--rule);padding-block:2rem}
+.site-foot .wrap{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;justify-content:space-between}
+.social{display:flex;flex-wrap:wrap;gap:1.5rem;margin:0;padding:0;list-style:none}
+.social a{text-decoration:none;font-size:.8125rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;min-height:44px;display:inline-flex;align-items:center;border-bottom:2px solid transparent}
+.social a:hover{border-bottom-color:var(--aiwa-white)}
+.colophon{font-size:.8125rem;color:var(--muted);margin:0}
+
+@media (prefers-reduced-motion:no-preference){
+  a,.pillars a,.ticket{transition:background-color .15s ease,color .15s ease,border-color .15s ease}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Spring til indhold</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a href="#top" aria-label="AIWA AIWA — forside">
+      <img class="mark" src="assets/logo-white.svg" alt="AIWA AIWA" width="136" height="91">
+    </a>
+    <nav class="nav" aria-label="Primær">
+      <a href="#forestillinger">Forestillinger</a>
+      <a href="#foredrag">Foredrag</a>
+      <a href="#faellesskab">Fællesskab</a>
+      <a class="is-book" href="#kontakt">Book</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="wrap">
+      <img class="mark" src="assets/logo-white.svg" alt="AIWA AIWA" width="544" height="363" fetchpriority="high">
+      <h1 class="display">Institutionel anerkendelse.<em>Uden assimilation.</em></h1>
+      <p class="lede">Scenekunststudie i Gellerup. Rå gadekultur, professionel scene. <strong>Vi giver ikke køb på nogen af delene.</strong></p>
+    </div>
+  </section>
+
+  <nav class="pillars" aria-label="Tre søjler">
+    <a href="#forestillinger"><b>Forestillinger</b><span>Teater om det, der ikke bliver sagt</span></a>
+    <a href="#foredrag"><b>Foredrag</b><span>Samtaler, ikke forelæsninger</span></a>
+    <a href="#faellesskab"><b>Fællesskab</b><span>Vi skaber med, vi underviser ikke</span></a>
+  </nav>
+
+  <!-- 01 PRODUCTIONS — magenta -->
+  <section class="section section--productions" id="forestillinger" aria-labelledby="h-forestillinger">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="tag">01 — Forestillinger</p>
+        <h2 class="display" id="h-forestillinger">Vi spiller det, der ikke bliver sagt</h2>
+        <p class="lede">Teater om tabuer, spillet råt. Ingen undskyldninger. Ingen bro at bygge — vi står på begge sider i forvejen.</p>
+      </div>
+
+      <div class="shows">
+        <article class="show">
+          <h3>Gud bevare Danmark</h3>
+          <p>Mansur, søn af palæstinensiske forældre, mellem to lande der begge kræver ham hel.</p>
+          <p class="meta">55 min + samtale · Voksne</p>
+        </article>
+        <article class="show">
+          <h3>Novembervejr</h3>
+          <p>Depression indefra. Selvmordstanker, og et system der kigger den anden vej.</p>
+          <p class="meta">50 min + samtale · Voksne</p>
+        </article>
+      </div>
+
+      <div class="dates">
+        <h3>Spilledatoer — efterår 2026</h3>
+        <ul>
+          <li>
+            <time datetime="2026-09-10">10.09.26</time>
+            <span class="venue">Kulturhotellet, Rønde <small>Gud bevare Danmark</small></span>
+            <a class="ticket" href="https://www.yourticket.dk/?ytroute=/arrangementer/59482/gud-bevare-danmark-teater-14-aar/" rel="noopener">Billetter<span class="sr-only"> til 10. september, Rønde</span></a>
+          </li>
+          <li>
+            <time datetime="2026-09-20">20.09.26</time>
+            <span class="venue">Fængslet, Horsens Teaterfestival <small>Gud bevare Danmark</small></span>
+            <a class="ticket" href="https://horsensteaterfestival.dk/events/gud-bevare-danmark/?occurrence=2026-09-20" rel="noopener">Billetter</a>
+          </li>
+          <li>
+            <time datetime="2026-10-18">18.10.26</time>
+            <span class="venue">Kvarterhuset, København <small>Gud bevare Danmark</small></span>
+            <a class="ticket" href="https://kulturogfritids.kk.dk/huse/kvarterhuset-amagerbro/det-sker" rel="noopener">Billetter</a>
+          </li>
+          <li>
+            <time datetime="2026-11-25">25.11.26</time>
+            <span class="venue">Fairplay, Holbæk <small>Gud bevare Danmark</small></span>
+            <a class="ticket" href="https://sjaellandsteater.dk/program/gud-bevare-danmark/" rel="noopener">Billetter</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 KEYNOTES — orange -->
+  <section class="section section--keynotes" id="foredrag" aria-labelledby="h-foredrag">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="tag">02 — Foredrag</p>
+        <h2 class="display" id="h-foredrag">Samtaler, ikke forelæsninger</h2>
+        <p class="lede">Chadi Abdul Karim har stået på scener i over 30 år. <strong>Han taler ikke om mennesker. Han taler som en af dem.</strong></p>
+      </div>
+
+      <div class="talks">
+        <a class="talk" href="https://aiwaaiwa.dk/om-palaestina/" rel="noopener">
+          <h3>Om Palæstina</h3>
+          <p>Fra gaderne i Danmark til olivenlundene på Vestbredden. Første hånd, ikke andenhånds.</p>
+          <span class="more">Læs mere</span>
+        </a>
+        <a class="talk" href="https://aiwaaiwa.dk/om-depression/" rel="noopener">
+          <h3>Om Depression</h3>
+          <p>Selvmordstanker sagt højt. Ærligt til det ubehagelige, uden at pakke noget ind.</p>
+          <span class="more">Læs mere</span>
+        </a>
+        <a class="talk" href="https://aiwaaiwa.dk/om-integration/" rel="noopener">
+          <h3>Om Integration</h3>
+          <p>Hele vejen fra Gellerup til kongehuset. Ordet holder ikke, når man har gået turen.</p>
+          <span class="more">Læs mere</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 COMMUNITY — acid green -->
+  <section class="section section--community" id="faellesskab" aria-labelledby="h-faellesskab">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="tag">03 — Fællesskab</p>
+        <h2 class="display" id="h-faellesskab">Vi underviser ikke. Vi skaber med.</h2>
+      </div>
+
+      <div class="split">
+        <p class="lede">Værksteder i Gellerup, i samarbejde med Gellerup Art Factory. Det deltagerne laver, ender i studiets eget arbejde. <strong>Ikke som pynt. Som materiale.</strong></p>
+        <ul class="rules">
+          <li><b>01</b><span>Lokale stemmer skriver med, ikke bagefter.</span></li>
+          <li><b>02</b><span>Værkstedets output går videre til scenen.</span></li>
+          <li><b>03</b><span>Ingen taler på andres vegne.</span></li>
+        </ul>
+      </div>
+
+      <ul class="team">
+        <li><b>Chadi Abdul Karim</b><span>Stifter &amp; kunstnerisk leder</span></li>
+        <li><b>Mahmoud Ismael</b><span>Administrator &amp; koordinator</span></li>
+        <li><b>Huda Chaaban</b><span>Sociale medier &amp; presse</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact" id="kontakt" aria-labelledby="h-kontakt">
+    <div class="wrap">
+      <p class="tag">Booking</p>
+      <h2 class="display" id="h-kontakt">Skriv. Vi svarer.</h2>
+      <p class="lede">Prisen afhænger af tid, sted, format og antal. Fortæl hvad I har brug for — så tager vi den uforpligtende snak.</p>
+      <a class="mailto" href="mailto:info@aiwaaiwa.dk">info@aiwaaiwa.dk</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="colophon">AIWA AIWA · Scenekunststudie · Gellerup, Danmark</p>
+    <ul class="social">
+      <li><a href="https://www.instagram.com/aiwa_aiwa_teater/" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.facebook.com/profile.php?id=100089726663008" rel="noopener">Facebook</a></li>
+      <li><a href="mailto:info@aiwaaiwa.dk">info@aiwaaiwa.dk</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>
